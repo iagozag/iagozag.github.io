@@ -24,11 +24,11 @@
   --color-palette-orange: #FFBB7C;
   
   /** general */
-  --font-family: Quicksand;
+  --font-family: Gohu Nerd Font;
   --display-image: block;
 
   /** surface */
-  --surface-maxWidth: 1250px;
+  --surface-maxWidth: 1300px;
   --surface-shadow: 6px 6px 18px rgb(101, 52, 38), 12px 12px 18px rgb(82.66666666666667, 46.666666666666664, 35), 18px 18px 18px rgb(64.33333333333334, 41.333333333333336, 32), 24px 24px 18px rgb(46, 36, 29);
   --surface-borderRadius: 6px;
 
@@ -41,5 +41,5 @@
 
   /** others */
   --picture-size: 300px;
-  --group-count: 6;
+  --group-count: 7;
 }
