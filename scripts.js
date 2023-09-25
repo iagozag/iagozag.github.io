@@ -8,15 +8,15 @@
 const searchInput = document.querySelector("#searchbar > input")
 const searchButton = document.querySelector("#searchbar > button")
 
-const lookup = {"/":"/","deepl":"https://deepl.com/","reddit":"https://reddit.com/","maps":"https://maps.google.com/"}
+const lookup = {"/":"/"}
 const engine = "google"
 const engineUrls = {
-  deepl: "https://www.deepl.com/translator#-/-/",
-  duckduckgo: "https://duckduckgo.com/?q=",
-  ecosia: "https://www.ecosia.org/search?q=",
-  google: "https://www.google.com/search?q=",
-  startpage: "https://www.startpage.com/search?q=",
-  youtube: "https://www.youtube.com/results?q=",
+  deepl: "https://www.deepl.com/translator#-/-/{query}",
+  duckduckgo: "https://duckduckgo.com/?q={query}",
+  ecosia: "https://www.ecosia.org/search?q={query}",
+  google: "https://www.google.com/search?q={query}",
+  startpage: "https://www.startpage.com/search?q={query}",
+  youtube: "https://www.youtube.com/results?q={query}",
 }
 
 const isWebUrl = value => {
@@ -31,7 +31,8 @@ const isWebUrl = value => {
 const getTargetUrl = value => {
   if (isWebUrl(value)) return value
   if (lookup[value]) return lookup[value]
-  return engineUrls[engine] + value
+  const url = engineUrls[engine] ?? engine
+  return url.replace("{query}", value)
 }
 
 const search = () => {
@@ -47,7 +48,7 @@ searchButton.onclick = search
  * inject bookmarks into html
  */
 
-const bookmarks = [{"id":"1IrUj9ejxKgEnhZh","label":"Pastime","bookmarks":[{"id":"P54aC6USemTKevOB","label":"Twitch","url":"https://www.twitch.tv/"},{"id":"fBhDttJjhwLEUmvb","label":"YouTube","url":"https://www.youtube.com/"},{"id":"Q1slpmpjT6RXNRtG","label":"BetterAnime","url":"https://betteranime.net/"},{"id":"Z4acOpuAy2aZnQyO","label":"MangAnime","url":"https://manganime.digital/"}]},{"id":"qdxgVdvqmyeHUskG","label":"School","bookmarks":[{"id":"bXQx8mwxXNzZnOSV","label":"MinhaUFMG","url":"https://sistemas.ufmg.br/portal/render.userLayoutRootNode.uP"},{"id":"yvXieuuY80Vfcpzp","label":"MoodleUFMG","url":"https://virtual.ufmg.br/minhasturmas/"},{"id":"KT0eAjAcE3hoq1y2","label":"WebmailDCC","url":"https://webmail.dcc.ufmg.br/"},{"id":"jHB9MCyU3pKJq2Ol","label":"Office","url":"https://www.office.com/?auth=2"}]},{"id":"PtI6xgWOp4I1nnH7","label":"Social Media","bookmarks":[{"id":"gF8LsnefdC7Uc8fK","label":"Whatsapp","url":"https://web.whatsapp.com/"},{"id":"3nydkJQFgjXWYpLK","label":"Twitter","url":"https://twitter.com/home"},{"id":"HqdLBrpPD0ClezRC","label":"Reddit","url":"https://www.reddit.com/"},{"id":"bxmNsfwGMA5nqDYC","label":"Instagram","url":"https://www.instagram.com/"}]},{"id":"MH4o22ekQKoF7iEi","label":"Programming","bookmarks":[{"id":"t4xf4knNLASvaa6E","label":"GitHub","url":"https://github.com/"},{"id":"Jh5hy39ZUgF8gog6","label":"CodCad","url":"https://neps.academy/br/codcad"},{"id":"AAakfkEN8mGRyuxR","label":"MaratonaUFMG","url":"https://docs.google.com/spreadsheets/d/1QQ1QvYNDPKv9Aqh5c2VL_KCtpqASDWeRcLkyyXlPM0M/edit#gid=1810604804"},{"id":"CJiwngmW2OC5PbXc","label":"CodeForces","url":"https://codeforces.com/problemset"}]},{"id":"ZPBLqXJSeAnYA0GB","label":"Helpful","bookmarks":[{"id":"GgnYQKKlldVovPBE","label":"Gmail","url":"https://mail.google.com/mail/u/0/#inbox"},{"id":"EicCJljIexvdm9vS","label":"MyDrive","url":"https://drive.google.com/drive/u/1/my-drive"},{"id":"VFKwi8haOU42S4ib","label":"iLovePDF","url":"https://www.ilovepdf.com/"},{"id":"uTfk5P1v0SQz1nFh","label":"LibGenesis","url":"https://libgen.is/"}]},{"id":"uAOwdjZtAYRpWvj6","label":"IDK","bookmarks":[{"id":"c3xyyauDVNE6LDKC","label":"Outlook","url":"https://outlook.live.com/mail/0/"},{"id":"VTqK2Fk8YIOWydtq","label":"IGG Games","url":"https://igg-games.com/"},{"id":"wj1k4Lhm6sOiz9rx","label":"PirateBay","url":"https://www.tpbproxypirate.com/"},{"id":"DwifIwOCtwu0Jt4o","label":"Translate","url":"https://www.google.com/search?client=firefox-b-d&q=translate"}]},{"id":"JZ6ASxxLVGOnQPpp","label":"iJunior","bookmarks":[{"id":"2OU3ujdRQ5Sw3QMF","label":"iJuniorSite","url":"https://ijunior.com.br/"},{"id":"njqz2LBWRH6GXvyO","label":"Notion","url":"https://www.notion.so/"},{"id":"tdGwcvvVwipFzrtA","label":"Clockify","url":"https://app.clockify.me/tracker#"},{"id":"TifiWvJQxKoicrfP","label":"Telegram","url":"https://web.telegram.org/"}]}]
+const bookmarks = [{"id":"qwdie6Whwi3q5jun","label":"pastime","bookmarks":[{"id":"S0NwUFv7AjxA5oEr","label":"twitch","url":"https://www.twitch.tv/"},{"id":"PD8Khf3radoARqyJ","label":"youtube","url":"https://www.youtube.com/"},{"id":"T8uLwAl8JR5AfWGJ","label":"betteranime","url":"https://betteranime.net/"},{"id":"dohaa44d82pPwUK6","label":"manganime","url":"https://manganime.digital/"}]},{"id":"hnkNSgOZUcGOz15m","label":"school","bookmarks":[{"id":"6bznM6ePWNhVTddh","label":"minhaufmg","url":"https://sistemas.ufmg.br/"},{"id":"CzB78SKIgU3pohfj","label":"moodle","url":"https://virtual.ufmg.br/minhasturmas/"},{"id":"pNQcAYzIjoedlAtT","label":"webmaildcc","url":"https://webmail.dcc.ufmg.br/"},{"id":"ZY8g6JHWOWsOHXi8","label":"mydrive","url":"https://drive.google.com/drive/u/1/my-drive"}]},{"id":"j6OV2yLSJGVnXW8E","label":"programming","bookmarks":[{"id":"2sO0N2LDSbrQsocJ","label":"github","url":"https://github.com/"},{"id":"mpTC9N8PzApLXNY6","label":"codeforces","url":"https://codeforces.com/problemset"},{"id":"MdjYPypFpZz867eu","label":"leetcode","url":"https://leetcode.com/problemset/all/"},{"id":"cMFtSYsrBqepU90x","label":"maratonaufmg","url":"https://docs.google.com/spreadsheets/d/1QQ1QvYNDPKv9Aqh5c2VL_KCtpqASDWeRcLkyyXlPM0M/edit#gid=1810604804"}]},{"id":"dOr9E9mZQzL8RONf","label":"helpful","bookmarks":[{"id":"5pZqdXOD2LzkuTm2","label":"gmail","url":"https://mail.google.com/mail/u/0/#inbox"},{"id":"nl72rLXjhtTRso7Q","label":"ilovepdf","url":"https://www.ilovepdf.com/"},{"id":"kvlfhpFeB1TkjtK0","label":"libgenesis","url":"https://libgen.is/"},{"id":"i8nW2HHARjSjOf0R","label":"translate","url":"https://www.google.com/search?client=firefox-b-d&q=translate"}]},{"id":"cZPpwMeUh64x6XSD","label":"ijunior","bookmarks":[{"id":"pQQwSxsw1faOYLjr","label":"site","url":"https://ijunior.com.br/"},{"id":"fkLar1JdKXiyTfqx","label":"notion","url":"https://www.notion.so/ijunior/Resumo-GitFlow-e-Commits-bf068a3562d7446e9aa9745a110da386"},{"id":"p6wvgm9MuDH6o3JI","label":"clockify","url":"https://app.clockify.me/tracker"},{"id":"nfio0Jbpp0rMuixy","label":"telegram","url":"https://web.telegram.org/a/"}]}]
 
 const createGroupContainer = () => {
   const container = document.createElement("div")
