@@ -168,6 +168,12 @@ const default_config = {
               icon: "binary-tree-2",
               icon_color: "#65a0d9",
             },
+            {
+              name: "cses",
+              url: "https://cses.fi/problemset/",
+              icon: "world",
+              icon_color: "#a39190",
+            },
           ],
         },
       ],
