@@ -22,7 +22,7 @@ const default_config = {
     "q": "config-tab",
   },
   disabled: [],
-  localIcons: true,
+  localIcons: false,
   fastlink: "https://chat.openai.com/",
   openLastVisitedTab: false,
   tabs: [
