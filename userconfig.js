@@ -24,7 +24,7 @@ const default_config = {
   disabled: [],
   localIcons: false,
   fastlink: "https://chat.openai.com/",
-  openLastVisitedTab: true,
+  openLastVisitedTab: false,
   tabs: [
     {
       name: "chi ll",
@@ -42,13 +42,13 @@ const default_config = {
             name: "telegram",
             url: "https://web.telegram.org",
             icon: "brand-telegram",
-            icon_color: "#7daea3",
+            icon_color: "#559bbd",
           },
 		  {
 		    name: "linkedin",
 		    url: "https://www.linkedin.com/feed/",
 		    icon: "brand-linkedin",
-		    icon_color: "#7daea3",
+		    icon_color: "#4a9bc6",
 		  },
         ],
       }, {
@@ -186,8 +186,14 @@ const default_config = {
           name: "mails",
           links: [
             {
-              name: "gmail",
+              name: "gmail_0",
               url: "https://mail.google.com/mail/u/0/",
+              icon: "brand-gmail",
+              icon_color: "#ea6962",
+            },
+            {
+              name: "gmail_1",
+              url: "https://mail.google.com/mail/u/1/",
               icon: "brand-gmail",
               icon_color: "#ea6962",
             },
