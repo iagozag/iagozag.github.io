@@ -68,7 +68,7 @@ const default_config = {
           },
           {
             name: "typeracer",
-            url: "https://play.typeracer.com/",
+            url: "https://play.typeracer.com/?universe=play",
             icon: "keyboard",
             icon_color: "#e78a4e",
           },
